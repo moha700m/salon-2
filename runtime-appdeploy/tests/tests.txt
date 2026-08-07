@@ -1,0 +1,51 @@
+# Tests
+
+## Test 1 - Generate a salon preview from the built-in example [sanity]
+Viewport: desktop
+Covers: POST /api/generate, salon site persistence, Banan-based generated preview, missing-data indicator
+Description: Verifies the primary generation workflow creates a persisted salon website and renders its core business details.
+Steps:
+1. Click "جرّب مثالًا جاهزًا"
+2. Wait for the generated preview
+3. Confirm the preview header and hero are visible
+Expected: A generated site for "لومي بيوتي لاونج" is shown with services, rating, map CTA, booking section, and a share-preview control.
+
+## Test 2 - Reload a generated share URL
+Viewport: mobile
+Covers: GET /api/site/:id, persisted share link, responsive salon preview
+Description: Verifies a generated site can be reopened from its independent URL and remains usable on mobile.
+Steps:
+1. Click "جرّب مثالًا جاهزًا"
+2. Reload the page after the URL changes to include ?site=
+3. Scroll to the services section
+Expected: The same salon name and generated services remain visible after reload on mobile.
+
+## Test 3 - Submit and retain a booking for a generated salon
+Viewport: desktop
+Covers: POST /api/bookings, per-site booking persistence, phone validation, appointment write
+Description: Verifies a customer can book through a generated salon site and receives a durable booking reference.
+Steps:
+1. Click "جرّب مثالًا جاهزًا"
+2. Scroll to "احجزي الآن" and enter name "سارة" and phone "0551234567"
+3. Select a future date, set time to 17:00, and submit
+Expected: A visible success message appears containing a booking reference starting with "MS-".
+
+## Test 4 - Reject a non-Google Maps URL
+Viewport: mobile
+Covers: POST /api/generate validation guardrail, invalid-source error state
+Description: Verifies the generator does not create a site from an unrelated URL.
+Steps:
+1. Enter "https://example.com" in the Google Maps field
+2. Click "أنشئ موقع المشغل"
+3. Observe the generator card
+Expected: A visible error is shown asking for a valid Google Maps link, and no salon preview is created.
+
+## Test 5 - Generate from a real Google Maps salon link
+Viewport: desktop
+Covers: POST /api/generate real Google Maps scrape and AI extraction path, persisted salon preview
+Description: Verifies the real public Google Maps ingestion path can turn a salon listing into a generated preview.
+Steps:
+1. Enter "https://maps.app.goo.gl/BX4XnLjXuZBH9WN16" in the Google Maps field
+2. Click "أنشئ موقع المشغل"
+3. Wait for extraction and site generation to finish
+Expected: A salon preview is created instead of an extraction error, with a business name, Google Maps CTA, services section, and booking section visible.
