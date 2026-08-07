@@ -1,0 +1,20 @@
+{
+  "title": "SalonProfile",
+  "type": "object",
+  "required": ["name", "mapsUrl"],
+  "properties": {
+    "name": { "type": "string" },
+    "category": { "type": "string" },
+    "address": { "type": "string" },
+    "phone": { "type": "string" },
+    "website": { "type": "string" },
+    "rating": { "type": "number" },
+    "reviewCount": { "type": "number" },
+    "hours": { "type": "array", "items": { "type": "string" } },
+    "description": { "type": "string" },
+    "services": { "type": "array", "items": { "type": "string" } },
+    "reviews": { "type": "array", "items": { "type": "string" } },
+    "mapsUrl": { "type": "string" },
+    "missing": { "type": "array", "items": { "type": "string" } }
+  }
+}
