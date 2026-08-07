@@ -1,0 +1,36 @@
+{
+  "id": "banan-v1",
+  "name": "قالب بنان",
+  "locale": "ar-SA",
+  "direction": "rtl",
+  "mobileFirst": true,
+  "font": "Tajawal",
+  "palette": {
+    "ink": "#221A16",
+    "plum": "#5C3A3F",
+    "gold": "#C7A464",
+    "cream": "#FFFCF9",
+    "sand": "#F6EFE8"
+  },
+  "sections": [
+    "header",
+    "hero",
+    "trust",
+    "services",
+    "reviews",
+    "location-hours",
+    "booking",
+    "footer"
+  ],
+  "integrations": [
+    "google-maps",
+    "whatsapp",
+    "bookings"
+  ],
+  "rules": {
+    "inventPrices": false,
+    "inventTeamMembers": false,
+    "showMissingAssets": true,
+    "allowPlaceholderServices": true
+  }
+}
